@@ -2,7 +2,7 @@ FROM laravelsail/php83-composer
 
 WORKDIR /var/www
 
-COPY fever-microservice/ .
+COPY . .
 COPY entrypoint.sh /tmp
 
 RUN chmod +x /tmp/entrypoint.sh

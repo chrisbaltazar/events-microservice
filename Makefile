@@ -1,23 +1,23 @@
 SHELL:=/bin/bash
 
 run:
-	docker build -t fever-app .
-	docker run --rm -d -p 10000:10000 --name fever-app fever-app
+	docker build -t events-micro-app .
+	docker run --rm -d -p 10000:10000 --name events-micro-app events-micro-app
 
 stop:
-	docker stop fever-app
+	docker stop events-micro-app
 
 plans:
-	docker exec fever-app php artisan app:plans:update
+	docker exec events-micro-app php artisan app:plans:update
 
 cache:
-	docker exec fever-app php artisan cache:clear
+	docker exec events-micro-app php artisan cache:clear
 
 enter:
-	docker exec -it fever-app bash
+	docker exec -it events-micro-app bash
 
 logs:
-	docker exec fever-app tail -f storage/logs/laravel.log
+	docker exec events-micro-app tail -f storage/logs/laravel.log
 
 test:
-	docker exec fever-app composer install && php artisan test
+	docker exec events-micro-app composer install && php artisan test
